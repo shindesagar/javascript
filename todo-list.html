@@ -16,11 +16,18 @@
             float: left;
         }
         h1{
-            margin: 0;
-            text-align: center;
-            text-transform: uppercase;
+            margin: 40px 0 0 0;
             font-size: 21px;
-            padding-bottom: 20px;
+            padding-bottom:10px;
+            font-weight: 400;
+        }
+        .totalCMsg{
+            margin: 0 0 40px;
+            line-height: 26px;
+        }
+        .totalCMsg strong{
+            font-size: 22px;
+            color:#3a388f
         }
         .todoList-wrapper{
             width:500px;
@@ -99,20 +106,25 @@
 <body>
     <section class="todoList-wrapper">
         <div class="top-wrapper">
-            <h1>Todo List App</h1>
+            <h1>Hello, <strong>Sagar</strong></h1>
+            <p class="totalCMsg">You have completed <strong id="completeTaskCount"></strong> out of <strong id="totalTask"></strong>  tasks today. <br/>Keep up the good work!</p>
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Type todo list here" id="todoTask">
                 <button class="btn" onclick="addItem()">&#x2b; Add</button>
             </div>
         </div>
         <div class="bottom-wrapper" style="padding: 20px;">
-            <h3 style="font-size: 18px;margin: 0;padding:0 0 20px ;">List </h3>
+            <h3 style="font-size: 18px;margin: 0;padding:0 0 20px ;">List <span>Total Task:</span></h3>
             <ul id="todoList">
     
             </ul>
         </div>
      </section>
     <script>
+        let totalTask = document.getElementById('totalTask');
+        totalTask.textContent = 0;
+        let completeTaskCount = document.getElementById('completeTaskCount');
+        completeTaskCount.textContent = 0;
        function addItem(){
             var getToDoListElement = document.getElementById('todoList');
             var getTodoTaskValue = document.getElementById('todoTask').value;
@@ -133,7 +145,8 @@
 
             // get length 
             var getTodoListLength = document.getElementsByTagName('li').length;
-            for (let i = 0; i < getTodoListLength; i++) {
+            totalTask.textContent = getTodoListLength;
+             for (let i = 0; i < getTodoListLength; i++) {
                 addToDoTask.setAttribute('id',`parent-${i}`);
                 deleteBtn.setAttribute('onclick',`removeList('parent-${i}')`);
                 selectCheckbox.setAttribute('onclick',`completeTask('parent-${i}')`);
@@ -151,7 +164,10 @@
             var currentTask = document.getElementById(value);
             currentTask.setAttribute('class','disabled')
             currentTask.childNodes[2].innerHTML = '<i class="fa fa-check-square-o complete"></i>';
-            currentTask.childNodes[0].innerHTML = `<del>${currentTask.childNodes[0].innerHTML}</del>`
+            currentTask.childNodes[0].innerHTML = `<del>${currentTask.childNodes[0].innerHTML}</del>`;
+            var totalCountCompleteTask =  document.getElementById('todoList');
+            completeTaskCount.textContent = totalCountCompleteTask.querySelectorAll('.disabled').length;
+            // completeTaskCount.textContent = getTodoListLength
         }
     </script>
 </body>
