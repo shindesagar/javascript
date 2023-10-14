@@ -159,6 +159,7 @@
         function removeList(value) {
             var removeItem = document.getElementById(value);
             removeItem.remove();
+            totalTask.textContent = document.getElementsByTagName('li').length;
         }
         function completeTask(value) {
             var currentTask = document.getElementById(value);
@@ -167,7 +168,6 @@
             currentTask.childNodes[0].innerHTML = `<del>${currentTask.childNodes[0].innerHTML}</del>`;
             var totalCountCompleteTask =  document.getElementById('todoList');
             completeTaskCount.textContent = totalCountCompleteTask.querySelectorAll('.disabled').length;
-            // completeTaskCount.textContent = getTodoListLength
         }
     </script>
 </body>
