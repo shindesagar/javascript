@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Roboto:ital,wght@0,100;0,300;0,400;1,500&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        body{
+            background: gray;
+        }
+        *, *:after, *:before {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        .calculator{
+            max-width:300px;
+            margin: 0 auto;
+            background: #434343;
+            padding: 20px 10px;
+            border-radius: 5px;
+            box-shadow: inset 0 0 4px #dedede;
+        }
+        #displayValue{
+            width: 100%;
+            height: 50px;
+            background: #bebea4;
+            border: 1px solid #828372;
+            margin-bottom: 20px;
+            text-align: right;
+            font-size: 30px;
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 4px;
+        }
+        table{
+            width: 100%;
+        }
+        td{
+            width: 25%;
+            padding: 3px;
+        }
+        button{
+            width: 100%;
+            border: 0;
+            height: 30px;
+            background: #515151;
+            color: #fff;
+            box-shadow: 1px 1px 1px #737070;
+        }
+        .bg-gray{
+            background: #7a7a7a;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <form> -->
+        <div class="calculator">
+            <input type="text"  id="displayValue"> 
+            <table>
+                <tr>
+                    <td><button onclick="allClear()">AC</button></td>
+                    <td><button onclick="deleteValue()">DEL</button></td>
+                    <td></td>
+                    <td><button onClick="displayResult('+')">+</button></td>
+                </tr>
+                <tr>
+                    <td><button onClick="displayResult('7')" class="bg-gray">7</button></td>
+                    <td><button onClick="displayResult('8')" class="bg-gray">8</button></td>
+                    <td><button onClick="displayResult('9')" class="bg-gray">9</button></td>
+                    <td><button onClick="displayResult('*')">X</button></td>
+                </tr>
+                <tr>
+                    <td><button onClick="displayResult('4')" class="bg-gray">4</button></td>
+                    <td><button onClick="displayResult('5')" class="bg-gray">5</button></td>
+                    <td><button onClick="displayResult('6')" class="bg-gray">6</button></td>
+                    <td><button onClick="displayResult('-')">-</button></td>
+                </tr>
+                <tr>
+                    <td><button onClick="displayResult('1')" class="bg-gray">1</button></td>
+                    <td><button onClick="displayResult('2')" class="bg-gray">2</button></td>
+                    <td><button onClick="displayResult('3')" class="bg-gray">3</button></td>
+                    <td><button onClick="displayResult('/')">/</button></td>
+                </tr>
+                <tr>
+                    <td><button onClick="displayResult('0')" class="bg-gray">0</button></td>
+                    <td><button onClick="displayResult('00')" class="bg-gray">00</button></td>
+                    <td><button onClick="displayResult('.')" class="bg-gray">.</button></td>
+                    <td><button onClick="finalresult()" style="background:#ef6937;">=</button></td>
+                </tr>
+            </table>
+             
+            
+        </div>
+    <!-- </form> -->
+    <script>
+        var result = document.getElementById("displayValue");
+        function displayResult(val){
+            result.value += val;
+        }
+        function finalresult(){
+            var finalValue = result.value;
+            var finalResult= eval(finalValue);
+            result.value = finalResult;
+        }
+        function allClear(){
+            result.value = '';
+        }
+        function deleteValue() {
+            result.value = result.value.slice(0,-1); 
+        }
+    </script>
+</body>
+</html>
