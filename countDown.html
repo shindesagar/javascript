@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background: #81d4fa;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+        #countdown {
+            font-size: 48px;
+            text-align: center;
+            margin-top: 100px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            font-size: 62px;
+            font-weight: 600;
+        }
+        #replay {
+            display: none;
+            border: 0;
+            background: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: #444242;
+            margin: 20px auto 0;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body onload="startCountdown()">
+    <section style="margin: 100px auto 0; width: 200px; height: 200px;">
+        <div id="countdown"></div>
+        <button id="replay" onclick="replayCount()">Replay</button>
+    </section>
+    <script>
+        let count = 5;
+        let countdown = document.getElementById('countdown');
+        countdown.textContent = 5;
+        let replay = document.getElementById('replay');
+
+        function replayCount() {
+            count = 5;
+            countdown.style.color = '#777';
+            countdown.textContent = count;
+            replay.style.display = 'none';
+            startCountdown();
+        }
+
+        function startCountdown() {
+            let interval = setInterval(() => {
+                count--;
+                if (count >= 1) {
+                    countdown.textContent = count;
+                } else if (count === 0) {
+                    countdown.textContent = 'GO';
+                    countdown.style.color = 'green';
+                    replay.style.display = 'block';
+                    clearInterval(interval);
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
