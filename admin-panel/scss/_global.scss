@@ -1,0 +1,15 @@
+/**variables starts**/
+$primary_family:'Ropa Sans', sans-serif;
+$primary:#241f1c;
+$primary-light:#937047;
+$primary-ultra-light:#e7dac7;
+
+$success:#8bc34a;
+
+
+@mixin transition() {
+	-moz-transition:all 0.3s linear 0s;
+	-webkit-transition:all 0.3s linear 0s;
+	transition:all 0.3s linear 0s;
+}
+

@@ -1,0 +1,57 @@
+/**variables starts**/
+.sidebar {
+  position: fixed;
+  z-index: 1000;
+  top: 71px;
+  left: 235px;
+  width: 210px;
+  margin-left: -235px;
+  margin-bottom: 48px;
+  background: #241f1c;
+  bottom: 0;
+  padding-bottom: 40px;
+  white-space: nowrap;
+  transition: all 0.2s ease-in-out;
+}
+
+.navbar {
+  height: 70px;
+  margin-bottom: 1px;
+  background: #241f1c;
+}
+.navbar .navbar-brand {
+  color: #e7dac7;
+  font-size: 36px;
+}
+
+body {
+  font-family: "Ropa Sans", sans-serif;
+}
+
+.form-control {
+  border-color: #937047;
+}
+.form-control:focus {
+  border-color: #241f1c;
+  box-shadow: 0 0 0 0.25rem #e7dac7;
+}
+
+.btn.btn-primary {
+  background: #937047;
+  border-color: #937047;
+}
+
+.main-container {
+  margin-top: 79px;
+  margin-left: 220px;
+  padding: 15px 26px 26px 15px;
+  position: relative;
+  overflow: hidden;
+}
+.main-container .inner-main-container {
+  background: #fcf7ee;
+  box-shadow: 0px 0px 12px 1px rgba(36, 31, 28, 0.1);
+  min-height: 500px;
+}
+
+/*# sourceMappingURL=main.css.map */
